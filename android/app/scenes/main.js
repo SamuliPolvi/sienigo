@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight, Image} from 'react-native';
+import { View, Text, TouchableHighlight, Image, Dimensions} from 'react-native';
 import {Spinner, Container, Header, Title, H1, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import {Col, Row, Grid} from 'react-native-easy-grid';
 import theme from '../../../Themes/main';
 import Guide from './guide';
+import MainGrid from '../containers/mainGrid';
 
 export default class Main extends Component {
   render() {
@@ -10,8 +12,12 @@ export default class Main extends Component {
           width: 100,
           height: 100
       }
+
+      const ScreenHeight = Dimensions.get("window").height - 135;
     return (
+        
             <Container theme={theme}> 
+            
                 <Image resizeMode='cover' source={{uri: 'http://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}>
                 <Header>
                 {this.props.index !== 0
@@ -24,30 +30,35 @@ export default class Main extends Component {
                 </Image>
 
                 <Content>
-                  <H1>{this.props.title}</H1>
-                  <Text />
-                  <Text>Index: {this.props.index}</Text>
-                  <Spinner />
+                    {this.props.index === 0 
+                        ? <MainGrid toGuidePage={this.props.toGuidePage}
+                                    toAnimalsPage={this.props.toAnimalsPage}
+                                    toForestPage={this.props.toForestPage}
+                                    toLocationPage={this.props.toLocationPage} 
+                          />
+                        : <Text></Text> }
                 </Content>
-                <Image resizeMode='cover' source={{uri: 'https://68.media.tumblr.com/af344b03b663f604be76c25c0070762e/tumblr_nog65y7IWY1urlch8o1_1280.png'}}>
+
+                <Image height={64} source={{uri: 'https://68.media.tumblr.com/af344b03b663f604be76c25c0070762e/tumblr_nog65y7IWY1urlch8o1_1280.png'}}>
                 <Footer>
                     <FooterTab>
                         <Button transparent onPress={this.props.toGuidePage}>
-                            <Icon name='ios-albums' />
+                            <Icon name='ios-book' />
                         </Button>
                         <Button transparent onPress={this.props.toAnimalsPage}>
-                            <Icon name='ios-add' />
+                            <Icon name='md-paw' />
                         </Button>  
                         <Button transparent onPress={this.props.toForestPage}>
-                            <Icon name='ios-flower' />
+                            <Icon name='ios-leaf' />
                         </Button>  
                         <Button transparent onPress={this.props.toLocationPage}>
-                            <Icon name='ios-arrow-forward' />
+                            <Icon name='md-pin' />
                         </Button>                                                                          
                     </FooterTab>
                 </Footer>
                 </Image>
             </Container>
+            
     )
   }
 }
