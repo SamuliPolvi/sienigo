@@ -48,7 +48,7 @@ export default class Main extends Component {
                         </Button>  
                         <Button transparent onPress={this.props.toForestPage}>
                             <Icon name='ios-leaf' />
-                            <Text> Kasvit </Text>
+                            <Text> Metsä </Text>
                         </Button>  
                         <Button transparent onPress={this.props.toLocationPage}>
                             <Icon name='md-pin' />
