@@ -38,7 +38,7 @@ export default class SieniGo extends Component {
             toForestPage={() => {
               navigator.push({
                 index: 3,
-                title: 'Metsä'
+                title: 'Kasvit'
               })
             }}
 
@@ -60,7 +60,7 @@ export default class SieniGo extends Component {
                   title = 'Eläimet'
                   break;
                 case 3:
-                  title = 'Metsä'
+                  title = 'Kasvit'
                   break;
                 case 4:
                   title = 'Sijainti'
