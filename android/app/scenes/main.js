@@ -8,30 +8,26 @@ import MainGrid from '../containers/mainGrid';
 
 export default class Main extends Component {
   render() {
-      const headerImg = {
-          width: 100,
-          height: 100
-      }
 
-      const ScreenHeight = Dimensions.get("window").height - 135;
+    const ScreenHeight = Dimensions.get("window").height - 135;
+
     return (
-        
             <Container theme={theme}> 
-            
                 <Image resizeMode='cover' source={{uri: 'http://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}>
-                <Header>
-                {this.props.index !== 0
-                   ? <Button transparent onPress={this.props.toFrontPage}>
-                        <Icon name='ios-arrow-back' />
-                    </Button>
-                : '' }                
-                    <Title>{this.props.title}</Title>
-                </Header>
+                    <Header>
+                    {this.props.index !== 0
+                    ? <Button transparent onPress={this.props.toFrontPage}>
+                            <Icon name='ios-arrow-back' />
+                        </Button>
+                    : '' }                
+                        <Title>{this.props.title}</Title>
+                    </Header>
                 </Image>
 
-                <Content>
+                <Content style={{backgroundColor: '#616161'}}>
                     {this.props.index === 0 
-                        ? <MainGrid toGuidePage={this.props.toGuidePage}
+                        ?
+                         <MainGrid toGuidePage={this.props.toGuidePage}
                                     toAnimalsPage={this.props.toAnimalsPage}
                                     toForestPage={this.props.toForestPage}
                                     toLocationPage={this.props.toLocationPage} 
@@ -44,15 +40,19 @@ export default class Main extends Component {
                     <FooterTab>
                         <Button transparent onPress={this.props.toGuidePage}>
                             <Icon name='ios-book' />
+                            <Text> Opas </Text>
                         </Button>
                         <Button transparent onPress={this.props.toAnimalsPage}>
                             <Icon name='md-paw' />
+                            <Text> Eläimet </Text>
                         </Button>  
                         <Button transparent onPress={this.props.toForestPage}>
                             <Icon name='ios-leaf' />
+                            <Text> Kasvit </Text>
                         </Button>  
                         <Button transparent onPress={this.props.toLocationPage}>
                             <Icon name='md-pin' />
+                            <Text> Opas </Text>
                         </Button>                                                                          
                     </FooterTab>
                 </Footer>

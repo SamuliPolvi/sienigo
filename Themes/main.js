@@ -104,7 +104,7 @@ return this.fontSizeBase*1.4;
 
 
 footerHeight:55,
-footerDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'rgba(0, 0, 0, 0)',
+footerDefaultBg:_reactNative.Platform.OS==='ios'?'rgba(0, 0, 0, 0)':'rgba(0, 0, 0, 0)',
 footerBtnMargin:1,
 
 
