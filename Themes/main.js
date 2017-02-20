@@ -104,7 +104,7 @@ return this.fontSizeBase*1.4;
 
 
 footerHeight:55,
-footerDefaultBg:_reactNative.Platform.OS==='ios'?'rgba(0, 0, 0, 0)':'rgba(0, 0, 0, 0)',
+footerDefaultBg:_reactNative.Platform.OS==='ios'?'rgba(0, 0, 0, 0.8)':'rgba(0, 0, 0, 0.8)',
 footerBtnMargin:1,
 
 
@@ -126,7 +126,7 @@ topTabBarBorderColor:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 
 
 iosToolbarBtnColor:'#007aff',
-toolbarDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'rgba(255,0,0,0)',
+toolbarDefaultBg:_reactNative.Platform.OS==='ios'?'rgba(0, 0, 0, 0.8)':'rgba(0, 0, 0, 0.8)',
 toolbarHeight:_reactNative.Platform.OS==='ios'?64:56,
 toolbarIconSize:_reactNative.Platform.OS==='ios'?20:22,
 toolbarInputColor:'#CECDD2',
@@ -138,7 +138,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 
 
 
-iconFamily:'Ionicons',
+iconFamily:'MaterialCommunityIcons',
 iconFontSize:_reactNative.Platform.OS==='ios'?30:28,
 iconMargin:7,
 

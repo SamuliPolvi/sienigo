@@ -13,7 +13,6 @@ export default class Main extends Component {
 
     return (
             <Container theme={theme}> 
-                <Image resizeMode='cover' source={{uri: 'http://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}>
                     <Header>
                     {this.props.index !== 0
                     ? <Button transparent onPress={this.props.toFrontPage}>
@@ -22,20 +21,20 @@ export default class Main extends Component {
                     : '' }                
                         <Title>{this.props.title}</Title>
                     </Header>
-                </Image>
-
-                <Content style={{backgroundColor: '#616161'}}>
-                    {this.props.index === 0 
-                        ?
+                
+                <Content>
+                    <Image resizeMode='stretch' source={{uri: 'https://cdn.pixabay.com/photo/2016/07/07/22/43/rise-1503340_960_720.jpg'}}>
+                    {this.props.index === 0 ?
                          <MainGrid toGuidePage={this.props.toGuidePage}
                                     toAnimalsPage={this.props.toAnimalsPage}
                                     toForestPage={this.props.toForestPage}
-                                    toLocationPage={this.props.toLocationPage} 
-                          />
-                        : <Text></Text> }
+                                    toLocationPage={this.props.toLocationPage} /> : <Text></Text> }
+                    {this.props.index === 1 ? 
+                         <Guide />: <Text></Text>}
+                     </Image>
                 </Content>
-
-                <Image height={64} source={{uri: 'https://68.media.tumblr.com/af344b03b663f604be76c25c0070762e/tumblr_nog65y7IWY1urlch8o1_1280.png'}}>
+                
+           
                 <Footer>
                     <FooterTab>
                         <Button transparent onPress={this.props.toGuidePage}>
@@ -52,11 +51,11 @@ export default class Main extends Component {
                         </Button>  
                         <Button transparent onPress={this.props.toLocationPage}>
                             <Icon name='md-pin' />
-                            <Text> Opas </Text>
+                            <Text> Sijainti </Text>
                         </Button>                                                                          
                     </FooterTab>
                 </Footer>
-                </Image>
+               
             </Container>
             
     )
