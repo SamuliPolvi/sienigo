@@ -1,6 +1,22 @@
 // SCENES
-export const SCENE_MAIN = "MAIN";
-export const SCENE_LOCATION = "LOCATION";
-export const SCENE_GUIDE = "GUIDE";
-export const SCENE_ANIMALS = "ANIMALS";
-export const SCENE_PLANTS = "PLANTS";
+export const SCENE_MAIN = "Sieni Go";
+export const SCENE_LOCATION = "Sijainti";
+export const SCENE_GUIDE = "Opas";
+export const SCENE_ANIMALS = "Eläimet";
+export const SCENE_PLANTS = "Kasvit";
+
+// GUIDE
+export const GUIDE_CAMPING = "Leiriytyminen";
+export const GUIDE_FIREMAKING = "Tulenteko";
+export const GUIDE_FIRSTAID = "Ensiapu";
+export const GUIDE_KNOTS = "Solmut";
+export const GUIDE_FOOD = "Ruoka";
+export const GUIDE_FISHING = "Kalastus";
+export const GUIDE_TRAVELLING = "Maastossa liikkuminen";
+export const GUIDE_LAW = "Lainsäädäntö";
+
+// SCENE_ANIMALS
+export const ANIMALS_MAMMALS = "Nisäkkäät";
+export const ANIMALS_FISHES = "Kalat";
+export const ANIMALS_BIRDS = "Linnut";
+export const ANIMALS_INSECTS = "Hyönteiset";

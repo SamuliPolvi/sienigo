@@ -8,7 +8,7 @@ export default class SieniGo extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ title: 'Etusivu', index: 0 }}
+        initialRoute={{ title: constants.SCENE_MAIN, index: 0 }}
         renderScene={(route, navigator) =>
           <Main
             title={route.title}
@@ -16,7 +16,7 @@ export default class SieniGo extends Component {
 
             toFrontPage={() => {
               navigator.push({
-                title: 'Etusivu',
+                title: constants.SCENE_MAIN,
                 index: 0
               })
             }}
@@ -24,54 +24,86 @@ export default class SieniGo extends Component {
             toGuidePage={() => {
               navigator.push({
                 index: 1,
-                title: 'Opas'
+                title: constants.SCENE_GUIDE
               })
             }}  
 
             toAnimalsPage={() => {
               navigator.push({
                 index: 2,
-                title: 'Eläimet'
+                title: constants.SCENE_ANIMALS
               })
             }}  
 
             toForestPage={() => {
               navigator.push({
                 index: 3,
-                title: 'Kasvit'
+                title: constants.SCENE_PLANTS
               })
             }}
 
             toLocationPage={() => {
               navigator.push({
                 index: 4,
-                title: 'Sijainti'
+                title: constants.SCENE_LOCATION
               })
-            }}                                         
-            // Function to call when a new scene should be displayed
-            onForward={() => {    
-              const nextIndex = route.index + 1;
-              let title = 'Etusivu';
-              switch (nextIndex) {
-                case 1:
-                  title = 'Opas'
-                  break;
-                case 2:
-                  title = 'Eläimet'
-                  break;
-                case 3:
-                  title = 'Kasvit'
-                  break;
-                case 4:
-                  title = 'Sijainti'
-                  break;                                    
-                default:
-                  break;
-              }
+            }} 
+            
+            // Guide
+            toCamping={() => {
               navigator.push({
-                title: title,
-                index: nextIndex,
-              });
+                index: 1.1,
+                title: constants.GUIDE_CAMPING
+              })
+            }}
+
+            toFiremaking={() => {
+              navigator.push({
+                index: 1.2,
+                title: constants.GUIDE_FIREMAKING
+              })
+            }}
+
+            toFirstaid={() => {
+              navigator.push({
+                index: 1.3,
+                title: constants.GUIDE_FIRSTAID
+              })
+            }}
+
+            toKnots={() => {
+              navigator.push({
+                index: 1.4,
+                title: constants.GUIDE_KNOTS
+              })
+            }}
+
+            toFood={() => {
+              navigator.push({
+                index: 1.5,
+                title: constants.GUIDE_FOOD
+              })
+            }}
+
+            toFishing={() => {
+              navigator.push({
+                index: 1.6,
+                title: constants.GUIDE_FISHING
+              })
+            }}
+
+            toTravelling={() => {
+              navigator.push({
+                index: 1.7,
+                title: constants.GUIDE_TRAVELLING
+              })
+            }}
+
+            toLaw={() => {
+              navigator.push({
+                index: 1.8,
+                title: constants.GUIDE_LAW
+              })
             }}
 
             // Function to call to go back to the previous scene
