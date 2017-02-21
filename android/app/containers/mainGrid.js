@@ -9,7 +9,7 @@ import GridBtn from '../components/gridBtn';
 export default class MainGrid extends Component {
   render() {
 
-    const ScreenHeight = Dimensions.get("window").height - 80;
+    const ScreenHeight = Dimensions.get("window").height - 50;
     const sqrSize = 120;
     return (
                     <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
