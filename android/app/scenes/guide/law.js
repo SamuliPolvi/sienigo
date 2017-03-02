@@ -5,7 +5,7 @@ import {Col, Row, Grid} from 'react-native-easy-grid';
 
 
 
-export default class Guide extends Component {
+export default class Law extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

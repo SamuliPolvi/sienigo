@@ -19,6 +19,7 @@ export default class GridBtn extends Component {
                     {!this.props.animal && <Icon  style={{color: '#fff', fontSize: 24}} name={this.props.icon} />}
                     {this.props.animal === 'mammal' && <Image source={require('../src/main/assets/images/deer.png')} style={{flex: 1, resizeMode: 'stretch', height: 60, width: 60}} />}
                     {this.props.animal === 'insect' && <Image source={require('../src/main/assets/images/insect.png')} style={{flex: 1, resizeMode: 'stretch', height: 60, width: 60}} />}
+                    {this.props.animal === 'mushroom' && <Image source={require('../src/main/assets/images/champignon.png')} style={{flex: 1, resizeMode: 'stretch', height: 55, width: 55}} />}
                 </Button>
                 <Text style={{color: '#fff', textAlign: 'center', fontWeight: 'bold', marginBottom: 25}}>{this.props.text}</Text>
             </Image>                   

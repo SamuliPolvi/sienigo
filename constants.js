@@ -20,3 +20,9 @@ export const ANIMALS_MAMMALS = "Nisäkkäät";
 export const ANIMALS_FISHES = "Kalat";
 export const ANIMALS_BIRDS = "Linnut";
 export const ANIMALS_INSECTS = "Hyönteiset";
+
+// SCENE_PLANTS
+export const PLANTS_TREES = "Puut";
+export const PLANTS_MUSHROOMS = "Sienet";
+export const PLANTS_FLOWERS = "Kukat";
+export const PLANTS_MOSS = "Sammalet";
