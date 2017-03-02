@@ -9,7 +9,7 @@ import GridBtn from '../components/gridBtn';
 export default class MainGrid extends Component {
   render() {
 
-    const ScreenHeight = Dimensions.get("window").height - 50;
+    const ScreenHeight = Dimensions.get("window").height - 74;
     const sqrSize = 120;
     return (
                     <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
@@ -20,7 +20,7 @@ export default class MainGrid extends Component {
                                 <GridBtn onPress={this.props.toAnimalsPage} icon= 'paw' img='https://cdn.pixabay.com/photo/2017/01/11/17/03/black-bears-1972307__340.jpg'/>
                             </Row>
                             <Row style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-                                <GridBtn onPress={this.props.toForestPage} icon='leaf' img='https://cdn.pixabay.com/photo/2016/12/05/22/49/mushroom-1885135_960_720.jpg'/>
+                                <GridBtn onPress={this.props.toPlantsPage} icon='leaf' img='https://cdn.pixabay.com/photo/2016/12/05/22/49/mushroom-1885135_960_720.jpg'/>
                                 <GridBtn onPress={this.props.toLocationPage} icon='google-maps' img='https://cdn.pixabay.com/photo/2016/11/21/17/35/camera-1846696_960_720.jpg'/>
                             </Row>
                         </Row>  

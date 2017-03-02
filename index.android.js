@@ -35,7 +35,7 @@ export default class SieniGo extends Component {
               })
             }}  
 
-            toForestPage={() => {
+            toPlantsPage={() => {
               navigator.push({
                 index: 3,
                 title: constants.SCENE_PLANTS
@@ -103,6 +103,66 @@ export default class SieniGo extends Component {
               navigator.push({
                 index: 1.8,
                 title: constants.GUIDE_LAW
+              })
+            }}
+
+
+            // Animals
+            toMammals={() => {
+              navigator.push({
+                index: 2.1,
+                title: constants.ANIMALS_MAMMALS
+              })
+            }}
+
+            toBirds={() => {
+              navigator.push({
+                index: 2.2,
+                title: constants.ANIMALS_BIRDS
+              })
+            }}
+
+            toFishes={() => {
+              navigator.push({
+                index: 2.3,
+                title: constants.ANIMALS_FISHES
+              })
+            }}
+
+            toInsects={() => {
+              navigator.push({
+                index: 2.4,
+                title: constants.ANIMALS_INSECTS
+              })
+            }}
+
+
+            // Plants
+            toTrees={() => {
+              navigator.push({
+                index: 3.1,
+                title: constants.PLANTS_TREES
+              })
+            }}
+
+            toMushrooms={() => {
+              navigator.push({
+                index: 3.2,
+                title: constants.PLANTS_MUSHROOMS
+              })
+            }}
+
+            toFlowers={() => {
+              navigator.push({
+                index: 3.3,
+                title: constants.PLANTS_FLOWERS
+              })
+            }}
+
+            toMoss={() => {
+              navigator.push({
+                index: 3.4,
+                title: constants.PLANTS_MOSS
               })
             }}
 
