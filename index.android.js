@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
-import {AppRegistry,StyleSheet,Text,View,Image,Navigator} from 'react-native';
+import {AppRegistry,StyleSheet,Text,View,Image,Navigator,PermissionsAndroid} from 'react-native';
 import Main from './android/app/scenes/main';
 import * as constants from './constants'; 
 import {createStore} from 'react-redux';
 
+async function requestLocationPermission() {
+    try {
+        const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            {
+                'title': 'Oikeus saada laitteen sijainti',
+                'message': 'Kartta tarvitsee toimiakseen laitteen sijaintitiedot.'
+            },
+        )
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            console.log('Location access granted!')
+        } else {
+            console.log('Location permission denied!')
+        }
+    } catch (error) {
+        console.warn(error)
+    }
+}
+
 export default class SieniGo extends Component {
+
+
+    componentWillMount() {
+        requestLocationPermission();
+    }
+
   render() {
     return (
       <Navigator
@@ -159,10 +184,10 @@ export default class SieniGo extends Component {
               })
             }}
 
-            toMoss={() => {
+            toBerries={() => {
               navigator.push({
                 index: 3.4,
-                title: constants.PLANTS_MOSS
+                title: constants.PLANTS_BERRIES
               })
             }}
 

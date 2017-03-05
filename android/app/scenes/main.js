@@ -26,16 +26,42 @@ import Insects from './animals/insects'
 import Birds from './animals/birds'
 // Plants
 import Trees from './plants/trees';
-import Moss from './plants/moss';
+import Berries from './plants/berries';
 import Flowers from './plants/flowers';
 import Mushrooms from './plants/mushrooms';
 
+const ScreenHeight = Dimensions.get("window").height - 135;
 
 export default class Main extends Component {
   render() {
-
-    const ScreenHeight = Dimensions.get("window").height - 135;
     const index = this.props.index;
+    let image = 'https://cdn.pixabay.com/photo/2016/07/07/22/43/rise-1503340_960_720.jpg';
+
+    switch (index) {
+        case 3.2:
+            image = 'http://i.epvpimg.com/l4lZbab.jpg';
+            break;
+        case 3.4:
+            image = 'http://i.epvpimg.com/yyyneab.jpg';
+            break;
+        case 2.1:
+            image = 'http://i.epvpimg.com/QQPvaab.jpg';
+            break;
+        case 2.2:
+            image = 'http://i.epvpimg.com/etbvcab.jpg';
+            break;
+        case 1.2:
+            image = 'http://i.epvpimg.com/5rOCfab.jpg';
+            break;
+        case 1.3:
+            image = 'http://i.epvpimg.com/eIYxcab.jpg';
+            break;
+        case 1.8:
+            image = 'http://i.epvpimg.com/9L2Ggab.jpg';
+            break;
+        default:
+            break;
+    }
     return (
             <Container theme={theme}> 
                     <Header>
@@ -62,7 +88,7 @@ export default class Main extends Component {
                     </Header>
                 
                 <Content>
-                    <Image resizeMode='cover' source={{uri: 'https://cdn.pixabay.com/photo/2016/07/07/22/43/rise-1503340_960_720.jpg'}}>
+                    <Image resizeMode='cover' source={{uri: image}}>
 
                     {/* Frontpage */}
                     {index === 0 &&
@@ -108,13 +134,13 @@ export default class Main extends Component {
                     {index === 3 && <Plants toTrees={this.props.toTrees}
                                             toMushrooms={this.props.toMushrooms}
                                             toFlowers={this.props.toFlowers}
-                                            toMoss={this.props.toMoss} />}
+                                            toBerries={this.props.toBerries} />}
 
                     {/* Plants submenus */}
                     {index === 3.1 && <Trees />}
                     {index === 3.2 && <Mushrooms />}
                     {index === 3.3 && <Flowers />}
-                    {index === 3.4 && <Moss />}
+                    {index === 3.4 && <Berries />}
 
                     {/* Location */}
                     {index === 4 && <Location />}

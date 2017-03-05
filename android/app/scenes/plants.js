@@ -5,12 +5,16 @@ import * as constants from '../../../constants';
 import GridBtn from '../components/gridBtn';
 import theme from '../../../Themes/main';
 
+const ScreenHeight = Dimensions.get("window").height -20;
+
+if (ScreenHeight < 650) {
+    ScreenHeight = ScreenHeight - 59;
+}
 
 export default class Plants extends Component {
 
   render() {
 
-    const ScreenHeight = Dimensions.get("window").height - 74;
 
     return (
         <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
@@ -22,7 +26,7 @@ export default class Plants extends Component {
                 </Row>
                 <Row style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                     <GridBtn onPress={this.props.toFlowers} text={constants.PLANTS_FLOWERS} icon='flower'  img='http://www.bonniercorp.com/wp-content/uploads/2014/04/alpha-grid.png'/>
-                    <GridBtn onPress={this.props.toMoss} text={constants.PLANTS_MOSS} icon='cloud-outline' img='http://www.bonniercorp.com/wp-content/uploads/2014/04/alpha-grid.png'/>
+                    <GridBtn onPress={this.props.toBerries} text={constants.PLANTS_BERRIES} animal='berry' icon='cloud-outline' img='http://www.bonniercorp.com/wp-content/uploads/2014/04/alpha-grid.png'/>
                 </Row>
             </Row>
             <Row style={{width: 200, height: (ScreenHeight / 5)}} /> 

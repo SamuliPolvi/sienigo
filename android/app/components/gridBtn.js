@@ -17,9 +17,10 @@ export default class GridBtn extends Component {
             <Image style={{flex: 1, width: sqrSize, backgroundColor: 'rgba(0, 0, 0, 0.3)'}} source={{uri: this.props.img}} >
                 <Button style={{flex: 1, width: sqrSize, marginBottom: -25}} transparent onPress={this.props.onPress}>
                     {!this.props.animal && <Icon  style={{color: '#fff', fontSize: 24}} name={this.props.icon} />}
-                    {this.props.animal === 'mammal' && <Image source={require('../src/main/assets/images/deer.png')} style={{flex: 1, resizeMode: 'stretch', height: 60, width: 60}} />}
-                    {this.props.animal === 'insect' && <Image source={require('../src/main/assets/images/insect.png')} style={{flex: 1, resizeMode: 'stretch', height: 60, width: 60}} />}
-                    {this.props.animal === 'mushroom' && <Image source={require('../src/main/assets/images/champignon.png')} style={{flex: 1, resizeMode: 'stretch', height: 55, width: 55}} />}
+                    {this.props.animal === 'mammal' && <Image source={require('../src/main/assets/images/deer.png')} style={{resizeMode: 'contain', height: 60, width: 60}} />}
+                    {this.props.animal === 'insect' && <Image source={require('../src/main/assets/images/insect.png')} style={{resizeMode: 'contain', height: 60, width: 60}} />}
+                    {this.props.animal === 'mushroom' && <Image source={require('../src/main/assets/images/champignon.png')} style={{resizeMode: 'contain', height: 55, width: 55}} />}
+                    {this.props.animal === 'berry' && <Image source={require('../src/main/assets/images/raspberry.png')} style={{resizeMode: 'contain', height: 55, width: 55}} />}
                 </Button>
                 <Text style={{color: '#fff', textAlign: 'center', fontWeight: 'bold', marginBottom: 25}}>{this.props.text}</Text>
             </Image>                   

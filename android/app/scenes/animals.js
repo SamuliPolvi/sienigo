@@ -5,13 +5,16 @@ import * as constants from '../../../constants';
 import GridBtn from '../components/gridBtn';
 import theme from '../../../Themes/main';
 
+const ScreenHeight = Dimensions.get("window").height - 20;
+
+if (ScreenHeight < 650) {
+    ScreenHeight = ScreenHeight - 54;
+}
 
 export default class Animals extends Component {
 
+
   render() {
-
-    const ScreenHeight = Dimensions.get("window").height - 74;
-
     return (
         <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
             <Row style={{width: 200, height: (ScreenHeight / 5)}} /> 
