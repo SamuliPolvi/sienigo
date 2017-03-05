@@ -5,16 +5,15 @@ import * as constants from '../../../constants';
 import GridBtn from '../components/gridBtn';
 import theme from '../../../Themes/main';
 
+const ScreenHeight = Dimensions.get("window").height;
 
 export default class Guide extends Component {
 
   render() {
 
-    const ScreenHeight = Dimensions.get("window").height - 139;
-
     return (
         <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
-            <Row style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
+            <Row style={{flex: 1, flexDirection: 'column', alignItems: 'center', minHeight: ScreenHeight}}>
                 <Row style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                     <GridBtn onPress={this.props.toCamping} text={constants.GUIDE_CAMPING} icon='tent' img='http://www.bonniercorp.com/wp-content/uploads/2014/04/alpha-grid.png'/>
                     <GridBtn onPress={this.props.toFiremaking} text={constants.GUIDE_FIREMAKING} icon= 'fire'  img='http://www.bonniercorp.com/wp-content/uploads/2014/04/alpha-grid.png'/>

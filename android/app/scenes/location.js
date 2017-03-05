@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {H1, Content, Button} from 'native-base';
-import {Dimensions, Image, DeviceEventEmitter, View, StyleSheet, PermissionsAndroid} from 'react-native';
+import {Dimensions, Image, DeviceEventEmitter, View, StyleSheet} from 'react-native';
 import {Row, Grid} from 'react-native-easy-grid';
 import { SensorManager } from 'NativeModules';
 import MapView from 'react-native-maps';
@@ -9,34 +9,10 @@ import Compass from '../components/compass';
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
-const LATITUDE = 61.484120;
-const LONGITUDE = 21.793216;
-const LATITUDE_DELTA = 0.0922;
+const LATITUDE = 0;
+const LONGITUDE = 0;
+const LATITUDE_DELTA = 0.0019;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
-async function requestLocationPermission() {
-    try {
-        const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-            {
-                'title': 'Oikeus saada laitteen sijainti',
-                'message': 'Kartta tarvitsee toimiakseen laitteen sijaintitiedot.'
-            },
-            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-            {
-                'title': 'Oikeus saada laitteen sijainti',
-                'message': 'Kartta tarvitsee toimiakseen laitteen sijaintitiedot.'
-            }
-        )
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            console.log('Location access granted!')
-        } else {
-            console.log('Location permission denied!')
-        }
-    } catch (error) {
-        console.warn(error)
-    }
-}
 
 
 export default class Location extends Component {
@@ -47,37 +23,23 @@ export default class Location extends Component {
             region: {
                 latitude: LATITUDE,
                 longitude: LONGITUDE,
-                latitudeDelta: 0.0092,
+                latitudeDelta: LATITUDE_DELTA,
                 longitudeDelta: LONGITUDE_DELTA
             },
             marker: {
                 latitude: 0,
                 longitude: 0
             },
-            initialPosition: 'unknown',
-            lastPosition: 'unknown',
+            errorText: null
         }
     }
 
-    componentWillMount() {
-        requestLocationPermission();
-    }
-
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-            var initialPosition = JSON.stringify(position);
-        },
-        (error) => alert(JSON.stringify(error)),
-        {enableHighAccuracy: true, timeout: 5000, maximumAge: 0});
         this.watchID = navigator.geolocation.watchPosition((position) => {
-            var lastPosition = JSON.stringify(position);
-            console.log('Lat: ' + position.coords.latitude)
-            console.log(lastPosition);
             this.map.animateToRegion(this.animateRegion(position.coords.latitude, position.coords.longitude));
-            this.setState({marker: {latitude: position.coords.latitude, longitude: position.coords.longitude}});
-            this.setState({lastPosition});
-        });
+            this.setState({marker: {latitude: position.coords.latitude, longitude: position.coords.longitude}, errorText: null});
+        },
+        (error) => this.setState({errorText: "GPS Signaalia ei löydy"}), {enableHighAccuracy: true, timeout: 300000, maximumAge: 1800000});
     }
 
     animateRegion(lat, long) {
@@ -92,14 +54,6 @@ export default class Location extends Component {
         navigator.geolocation.clearWatch(this.watchID);
     }
 
-    toggleCompass() {
-        this.state.start ? this.setState({start: false}) : this.setState({start: true}); 
-    }
-
-    onRegionChange(region) {
-        this.setState({ region });
-    }
-
   render() {
 
     const ScreenHeight = Dimensions.get("window").height - 177;
@@ -107,12 +61,12 @@ export default class Location extends Component {
     return (
                     <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
                         <Row>
-                            <Content style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', minHeight: ScreenHeight}}>
-                            <H1 style={{margin: 10, color: '#40F49B', fontFamily: 'IndieFlower'}}>Latitude: {this.state.region.latitude}</H1>
-                            <H1 style={{margin: 10, color: '#40F49B', fontFamily: 'IndieFlower'}}>Longitude: {this.state.region.longitude}</H1>
-                            <H1 style={{margin: 10, color: '#40F49B', fontFamily: 'IndieFlower'}}>lastPos: {this.state.lastPosition}</H1>
-                            
-                            <Button onPress={this.toggleCompass}> Starto </Button>
+                            <Content contentContainerStyle={{flex: 1, justifyContent: 'center', alignItems: 'center'}} style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', minHeight: ScreenHeight - 140}}>
+                            <Compass />
+                            {this.state.marker.latitude !== 0 && <H1 style={{color: '#fff', fontWeight: '400'}}>Lat: {this.state.marker.latitude}</H1>}
+                            {this.state.marker.longitude !== 0 && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>Lng: {this.state.marker.longitude}</H1>}
+                            {this.state.errorText && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>{this.state.errorText}</H1>}
+                            {this.state.marker.latitude === 0 && !this.state.errorText && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>Haetaan GPS signaalia..</H1>}
                             </Content>
                         </Row>
                         <Row>
@@ -123,10 +77,13 @@ export default class Location extends Component {
                                     style={styles.map}
                                     initialRegion={this.state.region}
                                 >
+                                <MapView.UrlTile urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                                
                                 <MapView.Marker
-                                title="This is a title"
-                                description="This is a description"
+                                title="Olet tässä"
+                                description="Sijainti ei välttämättä ole tarkka."
                                 image={require('../src/main/assets/images/marker.png')}
+                                flat={true}
                                 coordinate={this.state.marker}
                                 />
                             </MapView>

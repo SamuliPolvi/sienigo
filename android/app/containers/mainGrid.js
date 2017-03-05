@@ -5,11 +5,14 @@ import theme from '../../../Themes/main';
 import Guide from '../scenes/guide';
 import GridBtn from '../components/gridBtn';
 
+const ScreenHeight = Dimensions.get("window").height;
+if (ScreenHeight < 650) {
+    ScreenHeight = ScreenHeight - 79;
+}
 
 export default class MainGrid extends Component {
   render() {
 
-    const ScreenHeight = Dimensions.get("window").height - 74;
     const sqrSize = 120;
     return (
                     <Grid style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>

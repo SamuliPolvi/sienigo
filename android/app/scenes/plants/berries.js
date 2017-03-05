@@ -3,12 +3,12 @@ import {H1, Content} from 'native-base';
 import {Dimensions, Image} from 'react-native';
 import {Row, Grid} from 'react-native-easy-grid';
 import SearchBar from '../../components/searchbar';
-import FishesList from '../../components/fisheslist';
+import BerriesList from '../../components/berrieslist';
 import list from './list';
 
 
 
-export default class Mammals extends Component {
+export default class Berries extends Component {
     constructor() {
         super();
         this.state = {
@@ -24,13 +24,14 @@ export default class Mammals extends Component {
     let filteredList = [];
 
     if (filter) {
-      list.fishes.forEach((item) => {
-        if (item.name.toLowerCase().indexOf(filter) !== -1 || item.text.toLowerCase().indexOf(filter) !== -1 || item.size.toLowerCase().indexOf(filter) !== -1 || item.endanger.toLowerCase().indexOf(filter) !== -1) {
+      list.berries.forEach((item) => {
+        if (item.name.toLowerCase().indexOf(filter) !== -1 || item.kukka.toLowerCase().indexOf(filter) !== -1 || item.lehdet.toLowerCase().indexOf(filter) !== -1 || item.kasvupaikka.toLowerCase().indexOf(filter) !== -1
+        || item.hedelma.toLowerCase().indexOf(filter) !== -1) {
           filteredList.push(item);
         }
       })
     } else {
-      filteredList = list.fishes;
+      filteredList = list.berries;
     }
 
     filteredList.sort(function(a, b) {
@@ -44,8 +45,8 @@ export default class Mammals extends Component {
                       <SearchBar onChangeText={(text) => this.setState({filterText: text})} />
                         <Row>
                             <Content style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', minHeight: ScreenHeight}}>
-                            <H1 style={{padding: 10, color: '#40F49B', fontFamily: 'IndieFlower'}}> Kalat </H1>
-                              <FishesList fishes={filteredList} />
+                            <H1 style={{padding: 10, color: '#40F49B', fontFamily: 'IndieFlower'}}> Marjat </H1>
+                              <BerriesList berries={filteredList} />
                             </Content>
                         </Row>   
                     </Grid> 
