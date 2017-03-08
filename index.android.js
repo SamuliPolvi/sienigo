@@ -4,6 +4,8 @@ import Main from './android/app/scenes/main';
 import * as constants from './constants'; 
 import {createStore} from 'react-redux';
 
+const locationAccess = false;
+
 async function requestLocationPermission() {
     try {
         const granted = await PermissionsAndroid.request(
@@ -15,8 +17,10 @@ async function requestLocationPermission() {
         )
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
             console.log('Location access granted!')
+            locationAccess = true;
         } else {
             console.log('Location permission denied!')
+            locationAccess = false;
         }
     } catch (error) {
         console.warn(error)
@@ -38,6 +42,7 @@ export default class SieniGo extends Component {
           <Main
             title={route.title}
             index={route.index}
+            locationAccess={locationAccess}
 
             toFrontPage={() => {
               navigator.push({

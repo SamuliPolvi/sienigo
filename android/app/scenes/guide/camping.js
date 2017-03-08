@@ -45,7 +45,7 @@ export default class Camping extends Component {
            </Text>
            <ListView
             style={{marginLeft: 15}}
-            dataSource={this.state.leiriydy}
+            dataSource={this.state.teltta}
             renderRow={this.renderRow}
            />
           <Image resizeMode='contain'  style={{height: height, width: width}} source={require('../../src/main/assets/images/teltta.jpg')} />

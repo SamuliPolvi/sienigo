@@ -92,8 +92,8 @@ android {
         applicationId "com.sienigo"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.0"
+        versionCode 5
+        versionName "1.0.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

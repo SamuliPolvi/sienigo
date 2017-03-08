@@ -143,7 +143,7 @@ export default class Main extends Component {
                     {index === 3.4 && <Berries />}
 
                     {/* Location */}
-                    {index === 4 && <Location />}
+                    {index === 4 && <Location locationAccess={this.props.locationAccess} />}
 
                      </Image>
                 </Content>

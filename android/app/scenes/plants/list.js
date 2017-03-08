@@ -227,14 +227,6 @@ const list = {
     "url": "http://www.luontoportti.com/suomi/images/6285.jpg"
     },
     {
-    "name": "Hiirenvirna",
-    "kukka": "Teriö vastakohtainen, sininen–sinivioletti, 8–12 mm pitkä, perhomainen (terälehtiä 5, joista ylinnä purje, sivuilla siivet ja alimmaisena kahdesta lehdestä muodostunut venho). Verhiö 5-liuskainen, alin liuska verhiöntorven mittainen. Emiö 1-lehtinen ja 1-luottinen. Heteitä 10, palhot yhdistyvisiä. Kukinto pitkäperäinen, tiheä, 10–30-kukkainen terttu.",
-    "lehdet": "Kierteisesti, lyhytruotisia–ruodittomia, korvakkeellisia. Lapa parilehdykkäinen, 6–12-parinen, kärhellinen. Lehdykät kapeanpuikeita–tasasoukkia, ehytlaitaisia. Korvakkeet 2-liuskaiset.",
-    "kasvupaikka": "Niityt, tienvarret, pientareet, joutomaat, rannat, metsänreunat, ruohoiset metsät.",
-    "kukinta": "Kesä–elo(–syys)kuu.",
-    "url": "http://www.luontoportti.com/suomi/images/4803.jpg"
-    },
-    {
     "name": "Nurmitädyke",
     "kukka": "Teriö lähes säteittäinen, kirkkaansininen–sinipunainen, keskeltä tummajuovainen, 10–12 mm leveä, yhdislehtinen, 4-liuskainen, ratasmainen, lyhyttorvinen. Verhiö 4-liuskainen, liuskat tasasoukkia, nystykarvaisia. Heteitä 2. Emiö yhdislehtinen, 1-luottinen. Kukinto harsu, lehtihankainen terttu. Tertut usein pareittain. Kukkaperä tukilehteä pitempi.",
     "lehdet": "Vastakkain, alimmat lyhytruotisia, muut ruodittomia. Lapa puikea, tylppätyvinen, molemmin puolin karvainen, isohampainen.",
@@ -369,14 +361,6 @@ const list = {
     "kasvupaikka": "Niityt, tienvarret, pientareet, pihat, tuoreet metsät, lehdot, korvet, jokivarret, järvenrannat, tunturiniityt.",
     "kukinta": "Kesä–syyskuu.",
     "url": "http://www.luontoportti.com/suomi/images/1449.jpg"
-    },
-    {
-    "name": "Kullero",
-    "kukka": "Korkeus: 30–60 cm. Varsi haaraton, kalju.",
-    "lehdet": "Kehä palleromainen, keltainen, 2–4 cm leveä. Terälehtiä 5–15, pieniä, kapeita, verholehtien sisällä. Verholehtiä n. 15, koveria, keltaisia, terälehtimäisiä. Heteitä monta. Emiö erilehtinen, emejä useita. Kukat yksittäin tai 2–3 kukan viuhkona.",
-    "kasvupaikka": "Tummanruskea, ryppyinen, köliselkäinen tuppilo. Tuppiloita useita yhdessä.",
-    "kukinta": "Lehdot, lehto- ja lettokorvet, lähteiköt, tulvapensaikot, niityt, tunturiniityt ja lumimaat. Myös koristekasvi ja viljelykarkulainen.",
-    "url": "http://www.luontoportti.com/suomi/images/5363.jpg"
     },
     {
     "name": "Rentukka",
@@ -521,14 +505,6 @@ const list = {
     "kasvupaikka": "Lehtomaiset tuoreet metsät, lehdot, metsänreunat, lehtoniityt, hakamaat, korvet, pientareet, ojanvarret.",
     "kukinta": "(Huhti–)touko–kesäkuu.",
     "url": "http://www.luontoportti.com/suomi/images/9853.jpg"
-    },
-    {
-    "name": "Kyläkellukka",
-    "kukka": "Teriö säteittäinen, kalpeankeltainen, n. 10–15 mm leveä; terälehtiä 5, soikeita–vastapuikeita, 4–7 mm pitkiä. Verhiö 5-liuskainen; ulkoverhiöllinen, verholehdet hedelmävaiheessa (ja hiukan ennen) taakäänteiset. Heteitä paljon. Emiö erilehtinen, emejä useita. Kukinto harva huiskilo, kukat pystyjä.",
-    "lehdet": "Tyviruusukkeena ja varrella kierteisesti, ruodillisia, korvakkeellisia. Ruusukelehtien lapa parilehdykkäinen, 1–4-parinen, päätölehdykällinen. Päätölehdykkä ruodillinen, tav. 3-liuskainen, lehdykät liuska- tai hammaslaitaisia, alapuolelta korkosuonisia, karvaisia, harmahtavia. Varsilehtien lapa sormilehdykkäinen, 3-lehdykkäinen tai 3-liuskainen. Korvakkeet kookkaita, lehdykkämäisiä, hammaslaitaisia.",
-    "kasvupaikka": "Lehdot, puistot, puutarhat, pientareet, joutomaat, metsänreunat.",
-    "kukinta": "Kesä–elokuu.",
-    "url": "http://www.luontoportti.com/suomi/images/3395.jpg"
     },
     {
     "name": "Puna-ailakki",

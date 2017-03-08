@@ -131,7 +131,7 @@ toolbarHeight:_reactNative.Platform.OS==='ios'?64:56,
 toolbarIconSize:_reactNative.Platform.OS==='ios'?20:22,
 toolbarInputColor:'#CECDD2',
 toolbarInverseBg:'#222',
-toolbarTextColor:_reactNative.Platform.OS==='ios'?'#000':'#fff',
+toolbarTextColor:_reactNative.Platform.OS==='ios'?'#fff':'#fff',
 get statusBarColor(){
 return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 },
@@ -210,7 +210,7 @@ tabTextColor:'#222222',
 
 
 
-textColor:'#000',
+textColor:'#fff',
 inverseTextColor:'#fff',
 textBgColor:'transparent',
 

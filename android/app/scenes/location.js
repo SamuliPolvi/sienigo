@@ -35,11 +35,15 @@ export default class Location extends Component {
     }
 
     componentDidMount() {
-        this.watchID = navigator.geolocation.watchPosition((position) => {
-            this.map.animateToRegion(this.animateRegion(position.coords.latitude, position.coords.longitude));
-            this.setState({marker: {latitude: position.coords.latitude, longitude: position.coords.longitude}, errorText: null});
-        },
-        (error) => this.setState({errorText: "GPS Signaalia ei löydy"}), {enableHighAccuracy: true, timeout: 300000, maximumAge: 1800000});
+        if (this.props.locationAccess) {
+            this.watchID = navigator.geolocation.watchPosition((position) => {
+                this.map.animateToRegion(this.animateRegion(position.coords.latitude, position.coords.longitude));
+                this.setState({marker: {latitude: position.coords.latitude, longitude: position.coords.longitude}, errorText: null});
+            },
+            (error) => this.setState({errorText: "GPS Signaalia ei löydy"}), {enableHighAccuracy: true, timeout: 300000, maximumAge: 1800000});
+        } else {
+            this.setState({errorText: 'Applikaatiolla ei ole lupaa nähdä laitteen sijaintia.'})
+        }
     }
 
     animateRegion(lat, long) {
@@ -51,7 +55,7 @@ export default class Location extends Component {
     }
 
     componentWillUnmount() {
-        navigator.geolocation.clearWatch(this.watchID);
+        if (this.props.locationAccess) navigator.geolocation.clearWatch(this.watchID);
     }
 
   render() {
@@ -67,10 +71,12 @@ export default class Location extends Component {
                             {this.state.marker.longitude !== 0 && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>Lng: {this.state.marker.longitude}</H1>}
                             {this.state.errorText && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>{this.state.errorText}</H1>}
                             {this.state.marker.latitude === 0 && !this.state.errorText && <H1 style={{color: '#fff', fontWeight: '400', paddingBottom: 16}}>Haetaan GPS signaalia..</H1>}
+                            
                             </Content>
                         </Row>
                         <Row>
                             <Content>
+                                {this.props.locationAccess &&
                                 <MapView
                                     provider={this.props.provider}
                                     ref={ref => { this.map = ref; }}
@@ -86,7 +92,7 @@ export default class Location extends Component {
                                 flat={true}
                                 coordinate={this.state.marker}
                                 />
-                            </MapView>
+                            </MapView> }
                             </Content>
                         </Row>
                     </Grid> 
